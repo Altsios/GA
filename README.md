@@ -26,7 +26,7 @@ class GApyeasyga:
 ## Задание №2
 Созданы 2 класса:
 * Сущность
-  ```python
+```python
     class Individ:
     def __init__(self, cntW, cntV, cntP, cort):
         self.weight = cntW
@@ -34,9 +34,9 @@ class GApyeasyga:
         self.price = cntP
         self.cort = cort
         self.fitness = 0
-    ```
+ ```
 * Алгоритм
-  ```python
+ ```python
     class GeneticAlgorithm:
     def __init__(self, data, W, V, cnt):
         self.data = data
@@ -46,37 +46,37 @@ class GApyeasyga:
         # на первом шаге еще нет следующего поколения
         self.current_generation = self.createStartPop()
         self.next_generation = []
-    ```
+  ```
 Согласно распределению операторов:
 * Начальная популяция –кол-во особей всегда = 200.
-   ```python
+  ```python
     ga = GeneticAlgorithm(data, MaxWeight, MaxVolume, 200)
-    ```
+  ```
   * Жадный выбор, начиная со случайного груза
-    ```python
+  ```python
     def createStartPop(self)
-    ```
+  ```
 * Отборособей для скрещивания
   * Выбор каждой особи пропорционально приспособленности (рулетка)
-    ```python
+  ```python
     def roulette(self, tmpPar, pars)
-    ```
+  ```
 * Скрещивание (кроссинговер) между выбранными особями. Каждая особь скрещивается 1 раз за 1 поколение, 1 пара дает 2 потомка:
   * Однородный (каждый бит от случайно выбранного родителя)
-   ```python
+  ```python
     def crossing(self, mother, father)
-   ```
+  ```
 * Мутация
   * Инвертирование всех битов у 1 особи
-    ```python
+  ```python
     def mutation(self,data)
-    ```
+  ```
 * Формирование новой популяции (кол-во особей -константа)
   * «штраф» за «старость» -20% функции приспособленности, выбор лучших
-    ```python
+  ```python
     for old in self.current_generation:
        old.fitness *= 0.8
-    ```
+  ```
 * Оценка результата
   * Прошло 100 покоелений
  * Алгоритм запускается 20 раз, после чего выбирается лучший ответ
